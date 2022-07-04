@@ -18,9 +18,11 @@ standup:
 	docker-compose exec app composer require guzzlehttp/guzzle
 	docker-compose exec app composer require doctrine/dbal
 	docker-compose exec app composer require nesbot/carbon
+	docker-compose exec app composer require --dev beyondcode/laravel-dump-server:1.8.0
+	docker-compose exec app composer update
 	docker-compose exec app composer require aws/aws-sdk-php
 	docker-compose exec app composer require league/flysystem-aws-s3-v3
-	docker-compose exec app composer require --dev beyondcode/laravel-dump-server:1.8.0
+    docker-compose exec app compose update
 	docker-compose exec app php artisan config:cache
 	docker-compose exec app composer dump-autoload
 	docker-compose exec app php artisan migrate
@@ -44,6 +46,9 @@ stop:
 	docker-compose stop
 down:
 	docker-compose down
+down-all:
+    docker-compose down --rmi all --volumes --remove-orphans
+
 restart:
 	@make down
 	@make up

@@ -31,7 +31,7 @@ services:
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOSTS=db
-      - PMA_USER=admin
-      - PMA_PASSWORD=pass
+      - PMA_USER=docker
+      - PMA_PASSWORD=docker
     volumes:
       - ./docker/phpmyadmin/sessions:/sessions
